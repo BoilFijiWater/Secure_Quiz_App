@@ -1,0 +1,14 @@
+decorator
+Flask
+gunicorn
+itsdangerous
+Jinja2
+lxml
+MarkupSafe
+migrate
+pbr
+PyGithub
+six
+Tempita
+Werkzeug
+wheel
