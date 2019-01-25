@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}Quiz{% endblock %}
+
+{% block content %}
+<h1>{{ quest.question }}</h1>
+<form method='POST'>
+	A:<input type="radio" name="A"> quest.options[0] </input><br>
+	B:<input type="radio" name="B"> quest.options[1] </input><br>
+	C:<input type="radio" name="C"> quest.options[2] </input><br>
+	D:<input type="radio" name="D"> quest.options[3] </input><br>
+	
+	 <input type="submit" value="Submit">
+</form>
+{% endblock %}
