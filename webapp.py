@@ -26,7 +26,7 @@ def renderMain():
 
 @app.route('/quiz')
 def renderQuiz():
-    render_template('quiz.html', quest = questArr[0])
+    return render_template('quiz.html', quest = questArr[0])
 """
     if cq == 1:
         render_template('quiz.html', quest= questArr[0])

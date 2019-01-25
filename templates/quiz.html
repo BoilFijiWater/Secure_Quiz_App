@@ -3,13 +3,13 @@
 {% block title %}Quiz{% endblock %}
 
 {% block content %}
-<h1>{{ quest.question }}</h1>
 <form method='POST'>
-	A:<input type="radio" name="A"> quest.options[0] </input><br>
-	B:<input type="radio" name="B"> quest.options[1] </input><br>
-	C:<input type="radio" name="C"> quest.options[2] </input><br>
-	D:<input type="radio" name="D"> quest.options[3] </input><br>
-	
+	<h2>{{ quest.question }}</h2>
+	&nbsp&nbsp&nbspA:<input type="radio" name="A"> {{ quest.options[0] }} </input><br>
+	&nbsp&nbsp&nbspB:<input type="radio" name="B"> {{ quest.options[1] }} </input><br>
+	&nbsp&nbsp&nbspC:<input type="radio" name="C"> {{ quest.options[2] }} </input><br>
+	&nbsp&nbsp&nbspD:<input type="radio" name="D"> {{ quest.options[3] }} </input><br>
+	<br/>
 	 <input type="submit" value="Submit">
 </form>
 {% endblock %}
