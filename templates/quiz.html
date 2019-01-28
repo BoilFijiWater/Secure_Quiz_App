@@ -3,12 +3,19 @@
 {% block title %}Quiz{% endblock %}
 
 {% block content %}
-<form method='POST'>
+<form method='POST' action="/quiz">
 	<h2>{{ quest.question }}</h2>
-	&nbsp&nbsp&nbspA:<input type="radio" name="A"> {{ quest.options[0] }} </input><br>
-	&nbsp&nbsp&nbspB:<input type="radio" name="B"> {{ quest.options[1] }} </input><br>
-	&nbsp&nbsp&nbspC:<input type="radio" name="C"> {{ quest.options[2] }} </input><br>
-	&nbsp&nbsp&nbspD:<input type="radio" name="D"> {{ quest.options[3] }} </input><br>
+	<input type ="radio" name="selected" id="A" value="A">
+	<label for="A">{{ quest.options[0] }}</label><br>
+	
+	<input type="radio" name="selected" id="B" value="B">
+	<label for="B">{{ quest.options[1] }}</label><br>
+	
+	<input type="radio" name="selected" id="C" value="C">
+	<label for="C">{{ quest.options[2] }}</label><br>
+	
+	<input type="radio" name="selected" id="D" value="D">
+	<label for="D">{{ quest.options[3] }}</label><br>
 	<br/>
 	 <input type="submit" value="Submit">
 </form>

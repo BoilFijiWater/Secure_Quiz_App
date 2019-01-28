@@ -24,8 +24,9 @@ def renderMain():
     return render_template('home.html')
     
 
-@app.route('/quiz')
+@app.route('/quiz', methods=["POST", "GET"])
 def renderQuiz():
+    print(request.form)
     return render_template('quiz.html', quest = questArr[0])
 """
     if cq == 1:
