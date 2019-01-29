@@ -17,7 +17,11 @@ class quest:
         self.correct = corr_
         self.options=opti_
 
-questArr = [quest('CHOOSE A', 'A', ["HI", "Bye", "This is wrong", "Bananas"]), quest('THE FITNESS GRAM PACER TEST', 'B', ["HI", "Bye", "This is wrong", "Bananas"]),quest('TOMMOROW', 'C', ["HI", "Bye", "This is wrong", "Bananas"])]
+questArr = [
+    quest('Whats the the square root of PI/3', 'A', ["0.591", "0.675", "0.635", "0.257"]), 
+    quest('What has a head and a tail but no legs', 'B', ["four is a lie", "coin", "ghost", "kangaroo"]),
+    quest("What's the best pet", 'C', ["Dogs", "Baby Chameleon ", "Raccoon", "All of the above"])
+    ]
 
 @app.route('/')
 def renderMain():
@@ -26,23 +30,27 @@ def renderMain():
 
 @app.route('/quiz', methods=["POST", "GET"])
 def renderQuiz():
-    print(request.form)
-    return render_template('quiz.html', quest = questArr[0])
-"""
-    if cq == 1:
-        render_template('quiz.html', quest= questArr[0])
-    elif cq == 2:
-        render_template('quiz.html', quest= questArr[1])
-    elif cq == 3:
-        render_template('quiz.html', quest= questArr[2])
-    elif cq == 5:
-        redirect('/answers')
-    else redirect('/')
-    """
+    if "cq" not in session:
+        print("cq not in session")
+        session["cq"] = 0
+    if "answers" not in session:
+        session["answers"] = {}
     
+    print("selected" in request.form)
+    """ if "selected" in request.form:
+       session["answers"][session["cq"]] = request.form["selected"] """
+    """ print(type(session["cq"]))
+    print(type(len(questArr))) """
+    if session["cq"] < len(questArr):
+        session["cq"] = session["cq"] + 1
+        return render_template('quiz.html', quest = questArr[session["cq"]-1])
+    else:
+        return redirect('/answers')
 
 @app.route('/answers')
 def renderAnswers():
+    print(session["answers"])
+    session.clear()
     return render_template('home.html')
 
     
