@@ -1,9 +1,13 @@
 {% extends "layout.html" %}
 
-{% block title %}Quiz{% endblock %}
+{% block title %}Score{% endblock %}
 
 {% block content %}
-	<h1>Quiz</h2>
+	<h1>Score</h2>
+	<h3> {{ score }} out of {{ maxScore }} </h3>
+	{% for i in range(maxScore) %}
+	<p>Question {{ i+1 }}: {% if answerReveal[i] %}Correct{% else %}Wrong{% endif %}</p>
+	{% endfor %}
 	<br>
-	<a href="/quiz"><button> Start </button></a>
+	<a href="/"><button>Retake Quiz</button></a>
 {% endblock %}
